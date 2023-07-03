@@ -1,0 +1,123 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Tahoma, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, hsl(60, 78%, 43%), hsla(86, 100%, 50%, 0.329)); /*COLOR FONDO DE PÁGINA DEGRADADO*/
+    /*RELOJ AL CENTRO DE LA PÁGINA*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    /*FIN RELOJ AL CENTRO DE LA PÁGINA*/
+}
+
+.clock { /*RELOJ*/
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, .8);
+    border: 2px solid black;
+    position: relative;
+    /*HACER REDONDO EL CUADRADO*/
+    border-radius: 50%;
+}
+
+.clock .number { /*CAJA Y NUMEROS DEL RELOJ*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    text-align: center;
+    /*ROTACIÓN*/
+    transform: rotate(var(--rotation));
+    --rotation: 0;
+}
+
+/*ROTA CADA NÚMERO DENTRO DE LA CAJA .clock*/
+.clock .number1 {--rotation: 30deg;}
+.clock .number2 {--rotation: 60deg;}
+.clock .number3 {--rotation: 90deg;}
+.clock .number4 {--rotation: 120deg;}
+.clock .number5 {--rotation: 150deg;}
+.clock .number6 {--rotation: 180deg;}
+.clock .number7 {--rotation: 210deg;}
+.clock .number8 {--rotation: 240deg;}
+.clock .number9 {--rotation: 270deg;}
+.clock .number10 {--rotation: 300deg;}
+.clock .number11 {--rotation: 330deg;}
+.clock .number12 {--rotation: 360deg;}
+
+/*AGUJAS HORAS, MINUTOS, SEGUNDOS*/
+.clock .hand{
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    background-color: black;
+    border: 1px solid white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: 10;
+    /*PARA TRAERLO AL CENTRO*/
+    transform: translateX(-50%) rotate(calc(var(--rotation)*1deg));
+    --rotation: 30;
+    /*PARA QUE GIRE EN EL EJE DEL CENTRO*/
+    transform-origin: bottom;
+}
+
+/*SEGUNDERO*/
+.clock .hand.second{
+    width: 3px;
+    height: 45%;
+    background-color: rgb(31, 68, 22);
+}
+
+/*MINUTERO*/
+.clock .hand.minute{
+    width: 7px;
+    height: 40%;
+    background-color: black;
+}
+
+/*HORARIO*/
+.clock .hand.hour{
+    width: 10px;
+    height: 35%;
+    background-color: black;
+}
+
+/*CIRCULO DEL CENTRO*/
+.clock::after{
+    content: "";
+    position: absolute;
+    background-color: black;
+    z-index: 11;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
